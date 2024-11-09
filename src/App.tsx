@@ -1,30 +1,58 @@
+// src/App.tsx
 import { useEffect, useState } from 'react';
-import { getMovies } from './api/movies';
+import { getMovies, getPeople, getTV } from './api/movies';
 import './App.css';
 import { MovieCard } from './components/MovieCard';
-import { MovieType } from './types/movieTypes'; 
+import { MovieType } from './types/movieTypes';
 
 function App() {
-  const [movies, setMovies] = useState<MovieType[]>([]);
+  const [topMovies, setTopMovies] = useState<MovieType[]>([]);
+  const [topPeople, setTopPeople] = useState<MovieType[]>([]);
+  const [topTVSeries, setTopTVSeries] = useState<MovieType[]>([]);
 
-  //useEffect(parFunzione, arrayDipendenze)
   useEffect(() => {
-    const fetchMovies = async () => {
-      const movies = await getMovies();  // Chiamata alla funzione getMovies
-      setMovies(movies);  // Memorizziamo i film nello stato
+    const fetchData = async () => {
+      const movies = await getMovies();
+      const people = await getPeople();
+      const tv = await getTV();
+
+      setTopMovies(movies);
+      setTopPeople(people);
+      setTopTVSeries(tv);
     };
-    fetchMovies();  // Eseguiamo la chiamata
-  }, []); // Questo effect viene eseguito solo al primo render, altrimenti andrebbe in loop
+
+    fetchData();
+  }, []);
 
   return (
     <div>
-      <h1>Lista dei film di tendenza</h1>
-      {movies.length === 0 ? (
-        <p>Nessun film trovato. Prova a ricaricare la pagina.</p>
-      ) : (
-        movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+      <h1>MovieApp</h1>
+
+      <h2>Top 3 Trending Movies</h2>
+      {topMovies.length > 0 ? (
+        topMovies.map((movie) => (
+          <MovieCard key={movie.id} item={movie} />
         ))
+      ) : (
+        <p>Caricamento in corso...</p>
+      )}
+
+      <h2>Top 3 Trending People</h2>
+      {topPeople.length > 0 ? (
+        topPeople.map((person) => (
+          <MovieCard key={person.id} item={person} /> // Riutilizziamo MovieCard per persone
+        ))
+      ) : (
+        <p>Caricamento in corso...</p>
+      )}
+
+      <h2>Top 3 Trending TV</h2>
+      {topTVSeries.length > 0 ? (
+        topTVSeries.map((tvShow) => (
+          <MovieCard key={tvShow.id} item={tvShow} />
+        ))
+      ) : (
+        <p>Caricamento in corso...</p>
       )}
     </div>
   );
