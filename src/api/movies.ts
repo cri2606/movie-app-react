@@ -1,22 +1,17 @@
-import { MovieType } from "../types/movieTypes";
-export const getMovies = () => {
+// src/api/movies.ts
+import { ResponseTrendingType } from "../types/responseTypes";
+import { BASE_URL } from "./config";
 
-    const movieMock: MovieType[] = [
-        {
-          id: 1,
-          title: "Il signore degli anelli",
-          description: "Descrizione 1",
-        },
-        {
-          id: 2,
-          title: "Harry Potter",
-          description: "Descrizione 2",
-        },
-        {
-          id: 3,
-          title: "Il Padrino",
-          description: "Descrizione 3",
+export const getMovies = async () => {
+    try {
+        const response = await fetch(BASE_URL);
+        if (!response.ok) {
+            throw new Error("Errore nella richiesta a TMDB");
         }
-      ]
-    return movieMock;
-}
+        const data: ResponseTrendingType = await response.json();
+        return data.results; // Restituisci direttamente i risultati dei film
+    } catch (error) {
+        console.error("Errore nel recupero dei film:", error);
+        return []; // Restituisce un array vuoto in caso di errore
+    }
+};
