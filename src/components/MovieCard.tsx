@@ -25,9 +25,16 @@ export const MovieCard = ({ item }: MovieCardProps) => {
                     <h1>{item.name}</h1>
                     {/* Richiama la funzione per l'immagine */}
                     {renderImage(item.profile_path, item.name || "Person")}
-                    <p>Role: {item.role || "N/A"}</p>
-                    <p>Known for: {item.known_for_department || "N/A"}</p>
+                    <p>Role: {item.known_for_department || "N/A"}</p>
                     <p>Popularity: {item.popularity}</p>
+                    <p>Known for:</p>
+                    <ul>
+                        {item.known_for?.map((mediaItem) => (
+                            <li key={mediaItem.id}>
+                                {mediaItem.media_type === 'movie' ? mediaItem.title : mediaItem.name}
+                            </li>
+                        ))}
+                    </ul>
                 </>
             )}
             {item.media_type === 'tv' && (
