@@ -47,7 +47,7 @@ export const MovieCard = ({ item }: MovieCardProps) => {
                 </>
             )}
             {/* Pulsante "Learn More" con link */}
-            <a href={`https://www.google.com/search?q=${encodeURIComponent(learnMore(item))}`} className="btn" target="_blank" rel="noopener noreferrer" >
+            <a href={`https://www.google.com/search?q=${encodeURIComponent(learnMore(item))}`} className="btn">
                 Learn More
             </a>
         </div>
