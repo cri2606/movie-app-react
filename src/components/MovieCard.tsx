@@ -1,10 +1,10 @@
 // src/components/MovieCard.tsx
-import { MovieType } from "../types/movieTypes";
+import { MediaType } from "../types/movieTypes";
 import { renderImage, learnMore, cardBackground } from "../functions/functions";
 import "../css/movieCard.css";
 
 type MovieCardProps = {
-    item: MovieType;
+    item: MediaType;
 };
 
 export const MovieCard = ({ item }: MovieCardProps) => {
@@ -16,7 +16,7 @@ export const MovieCard = ({ item }: MovieCardProps) => {
                     <h1>{item.title}</h1>
                     {/* Richiama la funzione per l'immagine */}
                     {renderImage(item, item.backdrop_path)}
-                    <p>{item.overview || "Nessuna descrizione disponibile"}</p>
+                    <p>{item.overview}</p>
                     {item.vote_average && <p>Voto Average: {item.vote_average}</p>}
                 </>
             )}
@@ -25,7 +25,7 @@ export const MovieCard = ({ item }: MovieCardProps) => {
                     <h1>{item.name}</h1>
                     {/* Richiama la funzione per l'immagine */}
                     {renderImage(item, item.profile_path)}
-                    <p>Role: {item.known_for_department || "N/A"}</p>
+                    <p>Role: {item.known_for_department}</p>
                     <p>Popularity: {item.popularity}</p>
                     <p>Known for:</p>
                     <ul>

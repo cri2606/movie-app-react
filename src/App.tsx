@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import { getMovies, getPeople, getTV } from './api/movies';
 import './App.css';
 import { MovieCard } from './components/MovieCard';
-import { MovieType } from './types/movieTypes';
+import { MediaType } from './types/movieTypes';
 
 function App() {
-  const [topMovies, setTopMovies] = useState<MovieType[]>([]);
-  const [topPeople, setTopPeople] = useState<MovieType[]>([]);
-  const [topTVSeries, setTopTVSeries] = useState<MovieType[]>([]);
+  const [topMovies, setTopMovies] = useState<MediaType[]>([]);
+  const [topPeople, setTopPeople] = useState<MediaType[]>([]);
+  const [topTVSeries, setTopTVSeries] = useState<MediaType[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,7 +40,7 @@ function App() {
       <h2>Top 3 Trending People</h2>
       {topPeople.length > 0 ? (
         topPeople.map((person) => (
-          <MovieCard key={person.id} item={person} /> // Riutilizziamo MovieCard per persone
+          <MovieCard key={person.id} item={person} />
         ))
       ) : (
         <p>Caricamento in corso...</p>

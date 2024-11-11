@@ -1,4 +1,4 @@
-export type MovieType = {
+export type MediaType = {
     id: number;
     adult: boolean;
     media_type: string; 
@@ -19,7 +19,7 @@ export type MovieType = {
     gender?: number;
     known_for_department?: string;
     profile_path?: string;
-    known_for?: MovieType[];
+    known_for?: MediaType[];
     first_air_date?: string;
     origin_country?: string[];
 };

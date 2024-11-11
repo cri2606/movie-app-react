@@ -1,8 +1,8 @@
 // src/types/responseTypes.ts
-import { MovieType } from "./movieTypes";
+import { MediaType } from "./movieTypes";
 
 export type ResponseTrendingType = {
-    results: MovieType[];
+    results: MediaType[];
     page: number;
     total_pages: number;
     total_results: number;
