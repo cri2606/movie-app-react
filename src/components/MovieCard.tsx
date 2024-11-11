@@ -17,7 +17,7 @@ export const MovieCard = ({ item }: MovieCardProps) => {
                     {/* Richiama la funzione per l'immagine */}
                     {renderImage(item, item.backdrop_path)}
                     <p>{item.overview}</p>
-                    {item.vote_average && <p>Voto Average: {item.vote_average}</p>}
+                    <p>Voto Average: {item.vote_average}</p>
                 </>
             )}
             {item.media_type === 'person' && (
@@ -43,7 +43,7 @@ export const MovieCard = ({ item }: MovieCardProps) => {
                     {/* Richiama la funzione per l'immagine */}
                     {renderImage(item, item.backdrop_path)}
                     <p>{item.overview || "Nessuna descrizione disponibile"}</p>
-                    {item.vote_average && <p>Voto medio: {item.vote_average}</p>}
+                    <p>Voto medio: {item.vote_average}</p>
                 </>
             )}
             {/* Pulsante "Learn More" con link */}
