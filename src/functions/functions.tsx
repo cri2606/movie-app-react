@@ -1,4 +1,4 @@
-import { MediaType } from "../types/movieTypes";
+import { MediaType } from "../types/contentTypes";
 
 // Funzione per visualizzare l'immagine, passo il percoso dell'immagine
 export const renderImage = (item: MediaType, path: string | undefined) => {
