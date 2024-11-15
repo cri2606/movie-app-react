@@ -1,4 +1,4 @@
-export type ContentType = {
+export type ElementType = {
     id: number;
     adult: boolean;
     media_type: string; 
@@ -19,7 +19,7 @@ export type ContentType = {
     gender?: number;
     known_for_department?: string;
     profile_path?: string;
-    known_for?: ContentType[];
+    known_for?: ElementType[];
     first_air_date?: string;
     origin_country?: string[];
 };

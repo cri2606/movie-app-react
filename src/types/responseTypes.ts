@@ -1,8 +1,8 @@
 // src/types/responseTypes.ts
-import { ContentType } from "./contentTypes";
+import { ElementType } from "./elementTypes";
 
-export type ResponseTrendingType = {
-    results: ContentType[];
+export type ResponseType = {
+    results: ElementType[];
     page: number;
     total_pages: number;
     total_results: number;

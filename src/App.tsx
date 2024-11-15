@@ -1,16 +1,16 @@
 // src/App.tsx
 import './App.css';
-import { ContentHolder } from './components/ContentHolder';
+import { CardContainer } from './components/CardContainer';
 
 function App() {
   return (
     <div>
       <h1>MovieApp</h1>
 
-      {/* Componenti ContentHolder per i diversi tipi di contenuto */}
-      <ContentHolder url="movie/day" pTitle="Top 3 Trending Movies" />
-      <ContentHolder url="person/day" pTitle="Top 3 Trending People" />
-      <ContentHolder url="tv/day" pTitle="Top 3 Trending TV" />
+      {/* Componenti CardContainer per i diversi tipi di contenuto */}
+      <CardContainer url="movie/day" section="Trending Movies" />
+      <CardContainer url="person/day" section="Trending People" />
+      <CardContainer url="tv/day" section="Trending TV" />
     </div>
   );
 }
