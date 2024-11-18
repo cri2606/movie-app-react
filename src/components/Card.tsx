@@ -4,7 +4,7 @@ import "../css/styles.css";
 
 type CardProps = {
     element: ElementType;
-  }
+}
   
   export const Card = ({ element }: CardProps) => {
     switch (element.media_type) {

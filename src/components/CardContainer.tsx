@@ -12,9 +12,7 @@ export const CardContainer = ({ url, section }: CardContainerProps) => {
     const [element, setElement] = useState<ElementType[]>([]);
 
     useEffect(() => {
-        const fetchElement = async () => {
-            setElement(await getElement(url));
-        }
+        const fetchElement = async () => setElement(await getElement(url));
         fetchElement();
     }, [url]);
 
@@ -22,11 +20,7 @@ export const CardContainer = ({ url, section }: CardContainerProps) => {
         <>
             <h2>{section}</h2>
             <div>
-                {
-                    element.map((element) => {
-                        return <Card key={element.id} element={element} />
-                    })
-                }
+                { element.map((element) => <Card key={element.id} element={element} /> ) }
             </div>
         </>
     );

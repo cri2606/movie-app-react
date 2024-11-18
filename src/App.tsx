@@ -9,7 +9,7 @@ function App() {
 
       {/* Componenti CardContainer per i diversi tipi di contenuto */}
       <CardContainer url="movie/day" section="Trending Movies" />
-      <CardContainer url="person/day" section="Trending People" />
+      <CardContainer url="person/day" section="Trending People"/>
       <CardContainer url="tv/day" section="Trending TV" />
     </div>
   );
