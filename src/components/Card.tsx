@@ -12,7 +12,7 @@ type CardProps = {
         return (
           <div className="movie">
             <h2>{element.title}</h2>
-            <img src={srcImage(element, element.backdrop_path)} />
+            {/* <img src={srcImage(element, element.backdrop_path)} /> */}
             <p>{element.overview}</p>
           </div>
         )
@@ -20,7 +20,7 @@ type CardProps = {
         return (
           <div className="person">
             <h2>{element.name}</h2>
-            <img src={srcImage(element, element.profile_path)} />
+            {/* <img src={srcImage(element, element.profile_path)} /> */}
             <p>{element.overview}</p>
           </div>
         )
@@ -28,7 +28,7 @@ type CardProps = {
         return (
           <div className="tv">
             <h2>{element.name}</h2>
-            <img src={srcImage(element, element.backdrop_path)} />
+            {/* <img src={srcImage(element, element.backdrop_path)} /> */}
             <p>{element.overview}</p>
           </div>
         )
