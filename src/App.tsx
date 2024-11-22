@@ -1,7 +1,7 @@
 // src/App.tsx
 import './App.css';
 import { CardContainer } from './components/CardContainer';
-import { SimpleGrid } from "@chakra-ui/react"
+// import { SimpleGrid } from "@chakra-ui/react"
 
 function App() {
   return (
@@ -10,9 +10,9 @@ function App() {
 
       {/* Componenti CardContainer per i diversi tipi di contenuto */}
       
-      <SimpleGrid columns={3} gap={30}>
+      {/* <SimpleGrid columns={3} gap={40}> */}
         <CardContainer url="movie/day" section="Trending Movies" />
-      </SimpleGrid>
+      {/* </SimpleGrid> */}
       <CardContainer url="person/day" section="Trending People"/>
       <CardContainer url="tv/day" section="Trending TV" />
     </div>
