@@ -1,6 +1,7 @@
 // src/App.tsx
 import './App.css';
 import { CardContainer } from './components/CardContainer';
+// import { Provider } from "@/components/ui/provider"
 
 function App() {
   return (
