@@ -1,15 +1,18 @@
 import { ElementType } from "../types/elementTypes";
-import { srcImage } from "../functions/functions";
+import { learnMore, srcImage } from "../functions/functions";
 import "../css/styles.css";
-import { Card, Image, List, Button } from "@chakra-ui/react"
+import { Card, Image, List, Button, Link } from "@chakra-ui/react"
 
 type CardProps = {
   element: ElementType;
 }
 
 export const MyCard = ({ element }: CardProps) => {
+  let data:any = {};
+
   switch (element.media_type) {
     case "movie":
+      data.title = element.title;
       return (
         <Card.Root className="movie">
           <Image roundedTop="lg" src={srcImage(element, element.backdrop_path)} />
@@ -18,7 +21,9 @@ export const MyCard = ({ element }: CardProps) => {
             <Card.Description marginTop={2} maxHeight={100} overflowY="auto">{element.overview}</Card.Description>
           </Card.Body>
           <Card.Footer>
-            <Button bgColor="blue">Learn More</Button>
+            <Link href={learnMore(element)}>
+              <Button bgColor="blue">Learn More</Button>
+            </Link>
           </Card.Footer>
         </Card.Root>
       )
@@ -28,15 +33,15 @@ export const MyCard = ({ element }: CardProps) => {
           <Image roundedTop="lg" src={srcImage(element, element.profile_path)} />
           <Card.Body>
             <Card.Title>{element.name}</Card.Title>
-            <Card.Description marginTop={2}>
-              <List.Root>
+              <List.Root marginTop={2}>
                 <List.Item><b>Role:</b> {element.known_for_department}</List.Item>
                 <List.Item><b>Popularity:</b> {element.popularity}</List.Item>
               </List.Root>
-            </Card.Description>
           </Card.Body>
           <Card.Footer>
-            <Button bgColor="blue">Learn More</Button>
+            <Link href={learnMore(element)}>
+              <Button bgColor="blue">Learn More</Button>
+            </Link>
           </Card.Footer>
         </Card.Root>
       )
@@ -49,7 +54,9 @@ export const MyCard = ({ element }: CardProps) => {
             <Card.Description marginTop={2} maxHeight={100} overflowY="auto">{element.overview}</Card.Description>
           </Card.Body>
           <Card.Footer>
-            <Button bgColor="blue">Learn More</Button>
+            <Link href={learnMore(element)}>
+              <Button bgColor="blue">Learn More</Button>
+            </Link>
           </Card.Footer>
         </Card.Root>
       )
