@@ -30,7 +30,7 @@ export const MyCard = ({ element }: CardProps) => {
     case "person":
       return (
         <Card.Root className="person">
-          <Image roundedTop="lg" src={srcImage(element, element.profile_path)} />
+          <Image roundedTop="lg" objectFit="cover" src={srcImage(element, element.profile_path)} />
           <Card.Body>
             <Card.Title>{element.name}</Card.Title>
               <List.Root marginTop={2}>

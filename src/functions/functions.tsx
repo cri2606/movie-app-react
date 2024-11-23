@@ -3,7 +3,7 @@ import { ElementType } from "../types/elementTypes";
 export const srcImage = (element: ElementType, path: string | undefined) => {
     if (path) 
         return `https://image.tmdb.org/t/p/w500${path}`;
-    return element.media_type === 'person' ? '../images/user.png' : '../images/movie.png';
+    return element.media_type === 'person' ? '/movie-app-react/images/person_fallback.png' : '/movie-app-react/images/movie_tv_fallback.png';
 };
 
 //Funzione per settare l'url di ricerca quando clicco sul pulsante learnMore
