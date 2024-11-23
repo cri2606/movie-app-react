@@ -1,7 +1,5 @@
 // src/App.tsx
 import './App.css';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { CardContainer } from './components/CardContainer';
 
 function App() {

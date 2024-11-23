@@ -1,28 +1,30 @@
-import { useEffect, useState } from "react";
-import { ElementType } from "../types/elementTypes";
-import { getElement } from "../api/element";
-import { MyCard } from "./MyCard";
-import { SimpleGrid, Heading } from "@chakra-ui/react";
+import { useEffect, useState } from "react"
+import { ElementType } from "../types/elementTypes"
+import { getElement } from "../api/element"
+import { MyCard } from "./MyCard"
+import { SimpleGrid, Heading, Box } from "@chakra-ui/react"
 
 type CardContainerProps = {
-    url: string,
-    section: string
+  url: string,
+  section: string
 }
 
 export const CardContainer = ({ url, section }: CardContainerProps) => {
-    const [element, setElement] = useState<ElementType[]>([]);
+  const [element, setElement] = useState<ElementType[]>([]);
 
-    useEffect(() => {
-        const fetchElement = async () => setElement(await getElement(url));
-        fetchElement();
-    }, [url]);
+  useEffect(() => {
+    const fetchElement = async () => setElement(await getElement(url));
+    fetchElement();
 
-    return (
-        <>
-            <Heading textAlign="left" size="2xl" p={5}>{section}</Heading>
-            <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} gap={10}>
-                {element.map((element) => <MyCard key={element.id} element={element} />)}
-            </SimpleGrid>
-        </>
-    );
+  }, [url]);
+
+  return (
+    <>
+      <Heading textAlign="left" size="2xl" py={5} px={10}>{section}</Heading>
+      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} px={10} gap={10}>
+          {element.map((item) => <MyCard key={item.id} element={item} />)}
+      </SimpleGrid>
+    </>
+  );
 };
+
