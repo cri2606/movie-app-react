@@ -1,8 +1,8 @@
 // src/types/responseTypes.ts
-import { ElementType } from "./elementTypes";
+import { MovieType, TvType, PersonType } from "./elementTypes";
 
 export type ResponseType = {
-    results: ElementType[];
+    results: (MovieType | PersonType | TvType)[];
     page: number;
     total_pages: number;
     total_results: number;
