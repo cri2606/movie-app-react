@@ -18,7 +18,6 @@ export const CardContainer = ({ url, section }: CardContainerProps) => {
   useEffect(() => {
     const fetchElement = async () => setElement(await getElement(url));
     fetchElement();
-
   }, [url]);
 
   // var settings = {
