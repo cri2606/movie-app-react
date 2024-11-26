@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { ElementType } from "../types/elementTypes"
+import { MovieType, TvType, PersonType } from "../types/elementTypes"
 import { getElement } from "../api/element"
 import { MyCard } from "./MyCard"
 import { SimpleGrid, Heading, Box } from "@chakra-ui/react"
@@ -10,7 +10,7 @@ type CardContainerProps = {
 }
 
 export const CardContainer = ({ url, section }: CardContainerProps) => {
-  const [element, setElement] = useState<ElementType[]>([]);
+  const [element, setElement] = useState<(MovieType|TvType|PersonType)[]>([]);
 
   useEffect(() => {
     const fetchElement = async () => setElement(await getElement(url));
