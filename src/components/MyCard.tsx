@@ -48,7 +48,7 @@ export const MyCard = ({ element }: CardProps) => {
       <Image roundedTop="lg" src={srcImage(cardType, cardType.image)} />
       <Card.Body>
         <Card.Title>{cardType.name}</Card.Title>
-        <Card.Description lineClamp="3" whiteSpace="pre-wrap" marginTop={2} maxHeight={100}>{cardType.description}</Card.Description>
+        <Card.Description lineClamp="3" whiteSpace="pre-wrap" marginTop={2}>{cardType.description}</Card.Description>
       </Card.Body>
       <Card.Footer>
         <CardButton cardType={cardType} />

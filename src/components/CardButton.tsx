@@ -1,5 +1,5 @@
-import { CardType } from "../types/cardType";
-import { learnMore } from "../functions/functions";
+import { CardType } from "../types/cardType"
+import { learnMore } from "../functions/functions"
 import { Button, Link, Text } from "@chakra-ui/react"
 import { DialogBody, DialogCloseTrigger, DialogContent, DialogFooter, DialogHeader, DialogRoot, DialogTitle, DialogTrigger, DialogActionTrigger } from "../components/ui/dialog"
 
