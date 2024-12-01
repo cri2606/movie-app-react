@@ -5,7 +5,7 @@ import { MyCard } from "./MyCard"
 import { SimpleGrid, Heading } from "@chakra-ui/react"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-import Slider from "react-slick"
+// import Slider from "react-slick"
 
 type CardContainerProps = {
   url: string,

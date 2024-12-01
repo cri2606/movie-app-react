@@ -1,7 +1,7 @@
-import { MovieType, TvType, PersonType } from "../types/elementTypes";
-import { CardType } from "../types/cardType";
-import { srcImage } from "../functions/functions";
-import "../css/styles.css";
+import { MovieType, TvType, PersonType } from "../types/elementTypes"
+import { CardType } from "../types/cardType"
+import { srcImage } from "../functions/functions"
+import "../css/styles.css"
 import { Card, Image } from "@chakra-ui/react"
 import { CardButton } from "./CardButton"
 
@@ -11,11 +11,12 @@ type CardProps = {
 
 export const MyCard = ({ element }: CardProps) => {
 
-  let cardType: CardType = { media_type: "" };
+  let cardType: CardType = {id: 0, media_type: ""};
 
   switch (element.media_type) {
     case "movie":
       cardType = {
+        id: element.id,
         media_type: element.media_type,
         name: (element as MovieType).title,
         image: (element as MovieType).backdrop_path,
@@ -25,6 +26,7 @@ export const MyCard = ({ element }: CardProps) => {
       break;
     case "person":
       cardType = {
+        id: element.id,
         media_type: element.media_type,
         name: (element as PersonType).name,
         image: (element as PersonType).profile_path,
@@ -34,6 +36,7 @@ export const MyCard = ({ element }: CardProps) => {
       break;
     case "tv":
       cardType = {
+        id: element.id,
         media_type: element.media_type,
         name: (element as TvType).name,
         image: (element as TvType).backdrop_path,
