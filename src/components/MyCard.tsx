@@ -59,20 +59,3 @@ export const MyCard = ({ element }: CardProps) => {
     </Card.Root>
   )
 }
-
-
-// <Card.Root className="person">
-//   <Image roundedTop="lg" objectFit="cover" src={srcImage(element, element.profile_path)} />
-//   <Card.Body>
-//     <Card.Title>{element.name}</Card.Title>
-//     <List.Root marginTop={2}>
-//       <List.Item><b>Role:</b> {element.known_for_department}</List.Item>
-//       <List.Item><b>Popularity:</b> {element.popularity}</List.Item>
-//     </List.Root>
-//   </Card.Body>
-//   <Card.Footer>
-//     <Link href={learnMore(element)}>
-//       <Button bgColor="blue">Learn More</Button>
-//     </Link>
-//   </Card.Footer>
-// </Card.Root>
