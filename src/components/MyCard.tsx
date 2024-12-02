@@ -1,9 +1,9 @@
-import { MovieType, TvType, PersonType } from "../types/elementTypes"
-import { CardType } from "../types/cardType"
-import { srcImage } from "../functions/functions"
-import "../css/styles.css"
-import { Card, Image } from "@chakra-ui/react"
-import { CardButton } from "./CardButton"
+import { MovieType, TvType, PersonType } from "../types/elementTypes";
+import { CardType } from "../types/cardType";
+import { srcImage } from "../functions/functions";
+import "../css/styles.css";
+import { Card, Image } from "@chakra-ui/react";
+import { CardButton } from "./CardButton";
 
 type CardProps = {
   element: MovieType | PersonType | TvType;

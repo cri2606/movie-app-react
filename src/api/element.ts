@@ -9,5 +9,5 @@ export const getElement = async (endpoint: string): Promise<(MovieType|TvType|Pe
     if (!response.ok) throw new Error("Errore nella richiesta a TMDB");
     const data: ResponseType = await response.json();
     return data.results;
-  } catch (error) { throw error }
+  } catch (error) { throw error; }
 }

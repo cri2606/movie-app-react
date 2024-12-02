@@ -8,5 +8,5 @@ export const getDetails = async ({ media_type, id }: { media_type: string; id: n
     if (!response.ok) throw new Error("Errore nella richiesta a TMDB");
     const data = await response.json();
     return data;
-  } catch (error) { throw error };
-};
+  } catch (error) { throw error; }
+}

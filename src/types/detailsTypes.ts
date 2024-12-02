@@ -4,7 +4,7 @@ export type MovieDetailsType = {
     belongs_to_collection: string;
     budget: number;
     genres: { id: number; name: string }[];
-    homepage: string
+    homepage: string;
     id: number;
     imdb_id: string;
     original_language: string;
