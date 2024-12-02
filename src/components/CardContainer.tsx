@@ -1,6 +1,6 @@
 import { MyCard } from "./MyCard";
 import { SimpleGrid, Heading } from "@chakra-ui/react";
-import { useCards } from "../hooks/useCards";
+import { useMyCard } from "../hooks/useMyCard";
 
 type CardContainerProps = {
   url: string,
@@ -8,7 +8,7 @@ type CardContainerProps = {
 }
 
 export const CardContainer = ({ url, section }: CardContainerProps) => {
-  const {element} = useCards(url);
+  const {element} = useMyCard(url);
   return (
     <>
       <Heading textAlign="left" size="2xl" py={5} px={10}>{section}</Heading>

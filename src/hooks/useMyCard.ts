@@ -3,7 +3,7 @@ import { MovieType, PersonType, TvType } from "../types/elementTypes";
 import { getElement } from "../api/element";
 
 
-export const useCards = (url: string) => {
+export const useMyCard = (url: string) => {
     const [element, setElement] = useState<(MovieType | TvType | PersonType)[]>([]);
 
     useEffect(() => {
