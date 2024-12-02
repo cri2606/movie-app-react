@@ -20,7 +20,7 @@ export const MyCard = ({ element }: CardProps) => {
         media_type: element.media_type,
         name: (element as MovieType).title,
         image: (element as MovieType).backdrop_path,
-        description: (element as MovieType).overview + "\nReleased on " + (element as MovieType).release_date + ".",
+        description: (element as MovieType).overview,
         class: "movie"
       };
       break;
@@ -40,7 +40,7 @@ export const MyCard = ({ element }: CardProps) => {
         media_type: element.media_type,
         name: (element as TvType).name,
         image: (element as TvType).backdrop_path,
-        description: (element as TvType).overview + "\nFirst air date: " + (element as TvType).first_air_date,
+        description: (element as TvType).overview,
         class: "tv"
       };
       break;
