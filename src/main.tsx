@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')!).render(
       <BrowserRouter basename="/movie-app-react">
         <Routes>
           <Route index element={<App />} />
-          <Route path="/details" element={<Details />} />
+          <Route path=":type/:id" element={<Details />} />
         </Routes>
       </BrowserRouter>
     </Provider>
