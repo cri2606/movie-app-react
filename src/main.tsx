@@ -6,6 +6,7 @@ import { Details } from "./components/Details";
 import App from './App.tsx';
 import './index.css';
 
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider>

@@ -40,6 +40,5 @@ export const toCardType = (element: MovieType | TvType | PersonType): CardType =
       };
       break;
   }
-
   return cardType;
 };
