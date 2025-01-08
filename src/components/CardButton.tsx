@@ -13,6 +13,6 @@ export const CardButton = ({ cardType }: CardButtonProps) => {
   };
 
   return (
-    <Button bgColor="blue" onClick={handleClick}>Show Details</Button>
+    <Button color="white" bgColor="blue" onClick={handleClick}>Show Details</Button>
   );
 };

@@ -16,7 +16,7 @@ export const MyCard = ({ element }: CardProps) => {
     <Card.Root className={cardType.class}>
       <Image roundedTop="lg" src={srcImage(cardType, cardType.image)} />
       <Card.Body>
-        <Card.Title>{cardType.name}</Card.Title>
+        <Card.Title fontWeight="semibold">{cardType.name}</Card.Title>
         <Card.Description lineClamp="3" whiteSpace="pre-wrap" marginTop={2}>{cardType.description}</Card.Description>
       </Card.Body>
       <Card.Footer>

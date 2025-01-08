@@ -24,10 +24,11 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  flex-direction: column; /* Per organizzare gli elementi verticalmente */
+  align-items: center; /* Centrare orizzontalmente */
+  justify-content: flex-start; 
 }
 
 h1 {
