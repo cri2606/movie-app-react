@@ -49,7 +49,14 @@ export type TvDetailsType = {
         vote_count: number;
         air_date: string;
     };
-    next_episode_to_air: string;
+    next_episode_to_air: {
+        id: number;
+        name: string;
+        overview: string;
+        vote_average: number;
+        vote_count: number;
+        air_date: string;
+    };
     networks: { id: number; logo_path: string; name: string; origin_country: string }[];
     number_of_episodes: number;
     number_of_seasons: number;

@@ -28,7 +28,8 @@ body {
   min-height: 100vh;
   flex-direction: column; /* Per organizzare gli elementi verticalmente */
   align-items: center; /* Centrare orizzontalmente */
-  justify-content: flex-start; 
+  justify-content: flex-start;
+  padding-bottom: 2rem; 
 }
 
 h1 {

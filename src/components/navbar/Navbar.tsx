@@ -1,21 +1,16 @@
 import { Search } from 'lucide-react';
-import '../../css/navbar.css';
 import { MdMenu } from 'react-icons/md';
-import React, { useEffect } from 'react';
 import ResponsiveMenu from './ResponsiveMenu';
+import { useNavbar } from '../../hooks/useNavbar';
+import '../../css/navbar.css';
 
-export const Navbar = () => {
-    const [open, setOpen] = React.useState(false);
+type NavbarProps = {
+    onSectionChange: (section: string) => void; // Funzione per cambiare la sezione
+}
 
-        //chiude il responsive menu quando riporto la pagina a larghezza desktop
-        useEffect(() => {
-            const handleResize = () => {
-                if (window.innerWidth >= 992) setOpen(false);
-            };
-                window.addEventListener('resize', handleResize);
-            return () => window.removeEventListener('resize', handleResize);
-        }, []);
-        
+export const Navbar: React.FC<NavbarProps> = ({ onSectionChange }) => {
+    const { open, setOpen, activeSection, handleButtonClick } = useNavbar(onSectionChange);
+
     return (
         <>
             <nav className="bg-green-400 shadow-md">
@@ -27,9 +22,9 @@ export const Navbar = () => {
                     {/* Menu */}
                     <div className="hidden lg:block">
                         <ul className="flex items-center gap-6">
-                            <li><a href="#" className="inline-block text-[#213547] py-1 px-3 font-semibold">Trending Movies</a></li>
-                            <li><a href="#" className="inline-block text-[#213547] py-1 px-3 font-semibold">Trending People</a></li>
-                            <li><a href="#" className="inline-block text-[#213547]  py-1 px-3 font-semibold">Trending TV</a></li>
+                            <li><button onClick={() => handleButtonClick('Trending Movies')} className={`py-1 px-3 font-semibold rounded-lg ${activeSection === 'Trending Movies' ? 'bg-white text-green-400' : 'bg-green-400 text-[#213547]'}`}>Trending Movies</button></li>
+                            <li><button onClick={() => handleButtonClick('Trending People')} className={`py-1 px-3 font-semibold rounded-lg ${activeSection === 'Trending People' ? 'bg-white text-green-400' : 'bg-green-400 text-[#213547]'}`}>Trending People</button></li>
+                            <li><button onClick={() => handleButtonClick('Trending TV')} className={`py-1 px-3 font-semibold rounded-lg ${activeSection === 'Trending TV' ? 'bg-white text-green-400' : 'bg-green-400 text-[#213547]'}`}>Trending TV</button></li>
                         </ul>
                     </div>
                     {/* Search */}
@@ -48,7 +43,7 @@ export const Navbar = () => {
                 </div>
             </nav>
             {/* Mobile sidebar */}
-            <ResponsiveMenu open={open} />
+            <ResponsiveMenu open={open} activeSection={activeSection} onSectionChange={onSectionChange} handleButtonClick={handleButtonClick} />
         </>
     );
 

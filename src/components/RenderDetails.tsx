@@ -30,7 +30,6 @@ export const RenderDetails = ({ cardType, details }: RenderDetailsProps) => {
           <p><strong>Overview:</strong> {tvDetails.overview}</p>
           <p><strong>First Air Date:</strong> {tvDetails.first_air_date}</p>
           <p><strong>Last Air Date:</strong> {tvDetails.last_air_date}</p>
-          <p><strong>Next Episode to Air:</strong> {tvDetails.next_episode_to_air || "N/A"}</p>
           <p><strong>Number of Episodes:</strong> {tvDetails.number_of_episodes}</p>
           <p><strong>Number of Seasons:</strong> {tvDetails.number_of_seasons}</p>
           <p><strong>Original Language:</strong> {tvDetails.original_language}</p>

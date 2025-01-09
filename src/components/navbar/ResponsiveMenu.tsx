@@ -1,7 +1,14 @@
 import { AnimatePresence } from 'framer-motion';
 import { Search } from 'lucide-react';
 
-export const ResponsiveMenu = ({ open }: any) => {
+type ResponsiveMenuProps = {
+    open: boolean;
+    activeSection: string;
+    onSectionChange: (section: string) => void;
+    handleButtonClick: (section: string) => void;
+};
+
+export const ResponsiveMenu: React.FC<ResponsiveMenuProps> = ({ open, activeSection, handleButtonClick }) => {
     return (
         <AnimatePresence>
             {open && (
@@ -18,9 +25,9 @@ export const ResponsiveMenu = ({ open }: any) => {
                         </div>
                     </div>
                     <ul className="flex flex-col justify-center items-center gap-10 text-white">
-                        <li><a href="#" className="inline-block text-[#213547] py-1 px-3 font-semibold">Trending Movies</a></li>
-                        <li><a href="#" className="inline-block text-[#213547] py-1 px-3 font-semibold">Trending People</a></li>
-                        <li><a href="#" className="inline-block text-[#213547] py-1 px-3 font-semibold">Trending TV</a></li>
+                        <li><button onClick={() => handleButtonClick('Trending Movies')} className={`inline-block py-1 px-3 font-semibold rounded-lg ${activeSection === 'Trending Movies' ? 'bg-white text-green-400' : 'bg-green-400 text-[#213547]'}`}>Trending Movies</button></li>
+                        <li><button onClick={() => handleButtonClick('Trending People')} className={`inline-block py-1 px-3 font-semibold rounded-lg ${activeSection === 'Trending People' ? 'bg-white text-green-400' : 'bg-green-400 text-[#213547]'}`}>Trending People</button></li>
+                        <li><button onClick={() => handleButtonClick('Trending TV')} className={`inline-block py-1 px-3 font-semibold rounded-lg ${activeSection === 'Trending TV' ? 'bg-white text-green-400' : 'bg-green-400 text-[#213547]'}`}>Trending TV</button></li>
                     </ul>
                 </div>
             )}
