@@ -11,7 +11,6 @@ export const CardButton = ({ cardType }: CardButtonProps) => {
   const handleClick = async () => {
     navigate(`/${cardType.media_type}/${cardType.id}`, { state: { cardType } });
   };
-
   return (
     <Button color="white" bgColor="blue" onClick={handleClick}>Show Details</Button>
   );
