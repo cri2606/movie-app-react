@@ -11,8 +11,8 @@ export const toCardType = (element: MovieType | TvType | PersonType): CardType =
         media_type: element.media_type,
         name: (element as MovieType).title,
         image: (element as MovieType).backdrop_path,
+        poster: (element as MovieType).poster_path,
         description: (element as MovieType).overview,
-        class: "movie",
       };
       break;
     case "person":
@@ -26,7 +26,6 @@ export const toCardType = (element: MovieType | TvType | PersonType): CardType =
           (element as PersonType).known_for_department +
           "\nPopularity: " +
           (element as PersonType).popularity,
-        class: "person",
       };
       break;
     case "tv":
@@ -35,8 +34,8 @@ export const toCardType = (element: MovieType | TvType | PersonType): CardType =
         media_type: element.media_type,
         name: (element as TvType).name,
         image: (element as TvType).backdrop_path,
+        poster: (element as TvType).poster_path,
         description: (element as TvType).overview,
-        class: "tv",
       };
       break;
   }

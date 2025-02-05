@@ -3,7 +3,7 @@ import { getDetails } from "../api/details";
 import { MovieDetailsType, PersonDetailsType, TvDetailsType } from "../types/detailsTypes";
 import { CardType } from "../types/cardType";
 
-export const useCardButton = (cardType: CardType) => {
+export const useCardClick = (cardType: CardType) => {
   const [details, setDetails] = useState<MovieDetailsType | TvDetailsType | PersonDetailsType>();
 
   const fetchDetails = async () => {

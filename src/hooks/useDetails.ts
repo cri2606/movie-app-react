@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { useCardButton } from "./useCardButton";
+import {  useCardClick } from "./useCardClick";
 import { CardType } from "../types/cardType";
 
 export const useDetails = () => {
@@ -8,7 +8,7 @@ export const useDetails = () => {
   const navigate = useNavigate();
   const cardType: CardType = state.cardType;
 
-  const { fetchDetails, details } = useCardButton(cardType);
+  const { fetchDetails, details } = useCardClick(cardType);
 
   useEffect(() => {
     fetchDetails();

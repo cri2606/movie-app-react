@@ -4,6 +4,7 @@ export type CardType = {
     popularity?: number;
     name?: string;
     image?: string;
+    poster?: string;
     description?: string;
     class?: string;
 }

@@ -29,7 +29,8 @@ body {
   flex-direction: column; /* Per organizzare gli elementi verticalmente */
   align-items: center; /* Centrare orizzontalmente */
   justify-content: flex-start;
-  padding-bottom: 2rem; 
+  padding-bottom: 2rem;
+  background-color: #E6F7EC;
 }
 
 h1 {

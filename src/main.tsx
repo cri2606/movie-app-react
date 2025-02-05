@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import { Details } from "./components/Details";
 import App from './App.tsx';
 import './index.css';
+import { Search } from "./components/Search";
 
 
 createRoot(document.getElementById('root')!).render(
@@ -14,6 +15,7 @@ createRoot(document.getElementById('root')!).render(
         <Routes>
           <Route index element={<App />} />
           <Route path=":type/:id" element={<Details />} />
+          <Route path="search" element={<Search />} />
         </Routes>
       </BrowserRouter>
     </Provider>
