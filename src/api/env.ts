@@ -6,5 +6,5 @@ export const OPTS = {
     headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${API_KEY}`
-    },
+    }
 }
