@@ -1,6 +1,5 @@
 import { PersonType } from "../types/elementTypes";
-const API_KEY = import.meta.env.VITE_API_KEY;
-import { BASE_URL } from "./env"
+import { BASE_URL, API_KEY } from "./env"
 
 export const searchPeople = async (endpoint: string): Promise<PersonType[]> => {
   try {

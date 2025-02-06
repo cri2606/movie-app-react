@@ -1,7 +1,6 @@
 import { ResponseType } from "../types/responseTypes";
 import { MovieType, TvType, PersonType } from "../types/elementTypes";
-const API_KEY = import.meta.env.VITE_API_KEY;
-import { BASE_URL } from "./env"
+import { BASE_URL, API_KEY } from "./env"
 
 
 export const getElement = async (endpoint: string): Promise<(MovieType|TvType|PersonType)[]> => {
