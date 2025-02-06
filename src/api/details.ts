@@ -1,6 +1,6 @@
 import { MovieDetailsType, TvDetailsType, PersonDetailsType } from "../types/detailsTypes";
 const API_KEY = import.meta.env.VITE_API_KEY;
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+import { BASE_URL } from "./env"
 
 export const getDetails = async ({ media_type, id }: { media_type: string; id: number }): Promise<MovieDetailsType|TvDetailsType|PersonDetailsType> => {
   try {
