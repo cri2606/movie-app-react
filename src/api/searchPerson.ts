@@ -1,5 +1,5 @@
 import { PersonType } from "../types/elementTypes";
-import { BASE_URL, API_KEY, OPTS } from "./env"
+import { BASE_URL, API_KEY, OPTS } from "./config"
 
 export const searchPeople = async (endpoint: string): Promise<PersonType[]> => {
   try {

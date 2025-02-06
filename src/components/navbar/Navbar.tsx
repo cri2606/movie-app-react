@@ -9,10 +9,7 @@ type NavbarProps = {
 };
 
 export const Navbar = ({ onSectionChange }: NavbarProps) => {
-  const { 
-    open, setOpen, activeSection, handleButtonClick, 
-    searchQuery, setSearchQuery, handleSearch 
-  } = useNavbar(onSectionChange);
+  const { open, setOpen, activeSection, handleButtonClick, searchQuery, setSearchQuery, handleSearch } = useNavbar(onSectionChange);
 
   return (
     <>

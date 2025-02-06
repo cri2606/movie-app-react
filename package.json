@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "/movie-app-react",
+  "homepage": "/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -16,6 +16,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@rollup/plugin-inject": "^5.0.5",
+    "@tanstack/react-query": "^5.66.0",
     "@zag-js/carousel": "^0.77.1",
     "@zag-js/react": "^0.77.1",
     "dotenv": "^16.4.5",
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
+    "@tanstack/eslint-plugin-query": "^5.66.0",
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",

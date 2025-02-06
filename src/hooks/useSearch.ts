@@ -1,16 +1,15 @@
-import { useEffect, useState } from "react";
 import { searchPeople } from "../api/searchPerson";
-import { PersonType } from "../types/elementTypes";
 import { useNavigate } from "react-router";
+import { useQuery } from "@tanstack/react-query";
 
 export const useSearch = (url: string) => {
   const navigate = useNavigate();
-  const [element, setElement] = useState<PersonType[]>([]);
 
-  useEffect(() => {
-    const fetchElement = async () => setElement(await searchPeople(url));
-    fetchElement();
-  }, [url]);
+  const { data: element = [] } = useQuery({
+    queryKey: ["search", url],
+    queryFn: () => searchPeople(url),
+    enabled: !!url
+  });
 
   const handleSectionChange = (section: string) => {
     localStorage.setItem("activeSection", section);

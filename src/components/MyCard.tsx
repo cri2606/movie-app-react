@@ -1,21 +1,14 @@
 import { MovieType, TvType, PersonType } from "../types/elementTypes";
-import { CardType } from "../types/cardType";
 import { srcImage } from "../utilities/functions";
 import { Card, Image, Box, Text } from "@chakra-ui/react";
-import { toCardType } from "../utilities/toCardType";
-import { useNavigate } from "react-router";
+import { useMyCard } from "../hooks/useMyCard";
 
 type CardProps = {
   element: MovieType | PersonType | TvType;
 };
 
 export const MyCard = ({ element }: CardProps) => {
-  const navigate = useNavigate();
-  const cardType: CardType = toCardType(element);
-
-  const handleClick = () => {
-    navigate(`/${cardType.media_type}/${cardType.id}`, { state: { cardType } });
-  };
+  const {cardType, handleClick} = useMyCard(element);
 
   return (
     <Card.Root

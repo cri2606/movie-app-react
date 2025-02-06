@@ -1,6 +1,6 @@
 import { ResponseType } from "../types/responseTypes";
 import { MovieType, TvType, PersonType } from "../types/elementTypes";
-import { BASE_URL, API_KEY, OPTS } from "./env"
+import { BASE_URL, API_KEY, OPTS } from "./config"
 
 
 export const getElement = async (endpoint: string): Promise<(MovieType|TvType|PersonType)[]> => {
