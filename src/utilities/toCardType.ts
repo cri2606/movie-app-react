@@ -2,9 +2,11 @@ import { MovieType, TvType, PersonType } from "../types/elementTypes";
 import { CardType } from "../types/cardType";
 
 export const toCardType = (element: MovieType | TvType | PersonType): CardType => {
-  let cardType: CardType = { id: 0, media_type: "" };
+  let cardType: CardType = { id: 0, media_type: "person" };
+
+  const mediaType = element.media_type || "person";
   
-  switch (element.media_type) {
+  switch (mediaType) {
     case "movie":
       cardType = {
         id: element.id,

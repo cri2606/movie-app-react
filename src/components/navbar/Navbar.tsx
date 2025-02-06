@@ -1,7 +1,5 @@
 import { Search } from "lucide-react";
 import { MdMenu } from "react-icons/md";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { useNavbar } from "../../hooks/useNavbar";
 import "../../css/navbar.css";
@@ -11,16 +9,10 @@ type NavbarProps = {
 };
 
 export const Navbar = ({ onSectionChange }: NavbarProps) => {
-  const { open, setOpen, activeSection, handleButtonClick } = useNavbar(onSectionChange);
-  const [searchQuery, setSearchQuery] = useState(''); // Stato per la query
-  const navigate = useNavigate(); // Per navigare alla pagina di ricerca
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
-    }
-  };
+  const { 
+    open, setOpen, activeSection, handleButtonClick, 
+    searchQuery, setSearchQuery, handleSearch 
+  } = useNavbar(onSectionChange);
 
   return (
     <>

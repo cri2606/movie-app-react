@@ -1,21 +1,22 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const useNavbar = (onSectionChange: (section: string) => void) => {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(() => {
-    // Recupera la sezione dal localStorage o usa 'Trending Movies' come default
     return localStorage.getItem("activeSection") || "Trending Movies";
   });
 
-  // Salva la sezione attiva nel localStorage ogni volta che cambia
+  const [searchQuery, setSearchQuery] = useState(""); // Stato per la query di ricerca
+  const navigate = useNavigate(); // Per navigare alla pagina di ricerca
+
   useEffect(() => {
     localStorage.setItem("activeSection", activeSection);
   }, [activeSection]);
 
-  // Resetta la sezione attiva quando l'applicazione viene chiusa
   useEffect(() => {
     const handleBeforeUnload = () => {
-      localStorage.removeItem("activeSection"); // Rimuove lo stato salvato
+      localStorage.removeItem("activeSection");
     };
     window.addEventListener("beforeunload", handleBeforeUnload);
     return () => {
@@ -28,7 +29,6 @@ export const useNavbar = (onSectionChange: (section: string) => void) => {
     onSectionChange(section);
   };
 
-  // Chiude il responsive menu quando la pagina torna a larghezza desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 992) setOpen(false);
@@ -37,5 +37,22 @@ export const useNavbar = (onSectionChange: (section: string) => void) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return {open, setOpen, activeSection, handleButtonClick};
+  // Funzione per gestire la ricerca
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
+      setOpen(false); // Chiude il menu responsive dopo la ricerca
+    }
+  };
+
+  return {
+    open,
+    setOpen,
+    activeSection,
+    handleButtonClick,
+    searchQuery,
+    setSearchQuery,
+    handleSearch,
+  };
 };
