@@ -30,7 +30,7 @@ export const MyCard = ({ element }: CardProps) => {
       }}
       onClick={handleClick}
       cursor="pointer"
-      position="relative" // Necessario per il posizionamento assoluto del nome
+      position="relative"
     >
       <Image
         roundedTop="xl"

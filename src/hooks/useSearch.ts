@@ -13,8 +13,8 @@ export const useSearch = (url: string) => {
   }, [url]);
 
   const handleSectionChange = (section: string) => {
-    localStorage.setItem("activeSection", section); // Aggiorna la sezione attiva
-    navigate("/"); // Torna alla pagina principale
+    localStorage.setItem("activeSection", section);
+    navigate("/");
   };
 
   return { element, handleSectionChange };

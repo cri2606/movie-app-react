@@ -1,7 +1,6 @@
 import { MyCard } from "./MyCard";
 import { SimpleGrid, Heading } from "@chakra-ui/react";
 import { useMyCard } from "../hooks/useMyCard";
-import { useSearch } from "../hooks/useSearch";
 
 type CardContainerProps = {
   url: string,
