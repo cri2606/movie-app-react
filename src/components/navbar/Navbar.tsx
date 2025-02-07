@@ -1,15 +1,15 @@
-import { Search } from "lucide-react";
-import { MdMenu } from "react-icons/md";
-import ResponsiveMenu from "./ResponsiveMenu";
-import { useNavbar } from "../../hooks/useNavbar";
-import "../../css/navbar.css";
+import { Search } from "lucide-react"
+import { MdMenu } from "react-icons/md"
+import { ResponsiveMenu } from "./ResponsiveMenu"
+import { useNavbar } from "../../hooks/useNavbar"
+import "../../css/navbar.css"
 
 type NavbarProps = {
-  onSectionChange: (section: string) => void;
-};
+  onSectionChange: (section: string) => void
+}
 
 export const Navbar = ({ onSectionChange }: NavbarProps) => {
-  const { open, setOpen, activeSection, handleButtonClick, searchQuery, setSearchQuery, handleSearch } = useNavbar(onSectionChange);
+  const { sections, open, setOpen, activeSection, handleButtonClick, searchQuery, setSearchQuery, handleSearch, searchPlaceholder } = useNavbar(onSectionChange)
 
   return (
     <>
@@ -24,46 +24,26 @@ export const Navbar = ({ onSectionChange }: NavbarProps) => {
           {/* Menu */}
           <div className="hidden lg:block">
             <ul className="flex items-center gap-6">
-              <li>
-                <button 
-                  onClick={() => handleButtonClick("Trending Movies")} 
-                  className={`py-2 px-4 font-medium rounded-full transition-all duration-200 hover:shadow-md
-                    ${activeSection === "Trending Movies" 
-                      ? "bg-white text-emerald-600 shadow-md" 
-                      : "bg-transparent text-white hover:bg-emerald-400"}`}
-                >
-                  Trending Movies
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => handleButtonClick("Trending People")} 
-                  className={`py-2 px-4 font-medium rounded-full transition-all duration-200 hover:shadow-md
-                    ${activeSection === "Trending People" 
-                      ? "bg-white text-emerald-600 shadow-md" 
-                      : "bg-transparent text-white hover:bg-emerald-400"}`}
-                >
-                  Trending People
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => handleButtonClick("Trending TV")} 
-                  className={`py-2 px-4 font-medium rounded-full transition-all duration-200 hover:shadow-md
-                    ${activeSection === "Trending TV" 
-                      ? "bg-white text-emerald-600 shadow-md" 
-                      : "bg-transparent text-white hover:bg-emerald-400"}`}
-                >
-                  Trending TV
-                </button>
-              </li>
+              {sections.map((section) => (
+                <li key={section.name}>
+                  <button
+                    onClick={() => handleButtonClick(section.name)}
+                    className={`py-2 px-4 font-medium rounded-full transition-all duration-200 hover:shadow-md
+                      ${activeSection === section.name
+                        ? "bg-white text-emerald-600 shadow-md"
+                        : "bg-transparent text-white hover:bg-emerald-400"}`}
+                  >
+                    {section.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
           {/* Search */}
           <form onSubmit={handleSearch} className="hidden lg:flex items-center relative">
             <input
               type="text"
-              placeholder="Search..."
+              placeholder={searchPlaceholder}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="py-2 px-4 pr-12 rounded-full bg-white/10 border border-white/20 
@@ -81,9 +61,9 @@ export const Navbar = ({ onSectionChange }: NavbarProps) => {
         </div>
       </nav>
       {/* Mobile sidebar */}
-      <ResponsiveMenu open={open} activeSection={activeSection} onSectionChange={onSectionChange} handleButtonClick={handleButtonClick} />
+      <ResponsiveMenu open={open} activeSection={activeSection} onSectionChange={onSectionChange} handleButtonClick={handleButtonClick} searchPlaceholder={searchPlaceholder} />
     </>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

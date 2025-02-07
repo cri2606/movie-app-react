@@ -1,14 +1,14 @@
-import { MovieType, TvType, PersonType } from "../types/elementTypes";
-import { srcImage } from "../utilities/functions";
-import { Card, Image, Box, Text } from "@chakra-ui/react";
-import { useMyCard } from "../hooks/useMyCard";
+import { MovieType, TvType, PersonType } from "../types/elementTypes"
+import { srcImage } from "../utilities/functions"
+import { Card, Image, Box, Text } from "@chakra-ui/react"
+import { useMyCard } from "../hooks/useMyCard"
 
 type CardProps = {
-  element: MovieType | PersonType | TvType;
-};
+  element: MovieType | PersonType | TvType
+}
 
 export const MyCard = ({ element }: CardProps) => {
-  const {cardType, handleClick} = useMyCard(element);
+  const {cardType, handleClick} = useMyCard(element)
 
   return (
     <Card.Root
@@ -49,5 +49,7 @@ export const MyCard = ({ element }: CardProps) => {
         </Text>
       </Box>
     </Card.Root>
-  );
-};
+  )
+}
+
+export default MyCard

@@ -1,6 +1,7 @@
-import { MyCard } from "./MyCard";
-import { SimpleGrid, Heading } from "@chakra-ui/react";
-import { useCardContainer } from "../hooks/useCardContainer";
+import { MyCard } from "./MyCard"
+import { SimpleGrid, Heading } from "@chakra-ui/react"
+import { useCardContainer } from "../hooks/useCardContainer"
+import { useSearch } from "../hooks/useSearch"
 
 type CardContainerProps = {
   url: string,
@@ -8,7 +9,8 @@ type CardContainerProps = {
 }
 
 export const CardContainer = ({ url, section }: CardContainerProps) => {
-  const {element} = useCardContainer(url);
+  const {element} = url.includes("search") ? useSearch() : useCardContainer(url)
+  
   return (
     <>
       <Heading textAlign="left" fontSize="2xl" py={5} px={20} fontWeight="bold">{section}</Heading>
@@ -16,6 +18,7 @@ export const CardContainer = ({ url, section }: CardContainerProps) => {
           {element.map((item) => <MyCard key={item.id} element={item} />)}
         </SimpleGrid>
     </>
-  );
-};
+  )
+}
 
+export default CardContainer

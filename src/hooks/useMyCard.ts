@@ -1,20 +1,16 @@
-import { MovieType, TvType, PersonType } from "../types/elementTypes";
-import { CardType } from "../types/cardType";
-import { useNavigate, useLocation } from "react-router";
+import { MovieType, TvType, PersonType } from "../types/elementTypes"
+import { CardType } from "../types/cardType"
+import { useNavigate } from "react-router"
 
 export const useMyCard = (element: MovieType | TvType | PersonType) => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  let cardType: CardType = { id: 0, media_type: "person" };
-
-  const mediaType = element.media_type || "person";
+  const navigate = useNavigate()
+  let cardType: CardType = { id: 0, media_type: "" }
   
   const handleClick = () => {
-    if (location.pathname !== "/") return;
-    navigate(`/${mediaType}/${cardType.id}`, { state: { cardType } });
-  };
+    navigate(`/${element.media_type}/${cardType.id}`, { state: { cardType } })
+  }
 
-  switch (mediaType) {
+  switch (element.media_type) {
     case "movie":
       cardType = {
         id: element.id,
@@ -23,8 +19,8 @@ export const useMyCard = (element: MovieType | TvType | PersonType) => {
         image: (element as MovieType).backdrop_path,
         poster: (element as MovieType).poster_path,
         description: (element as MovieType).overview,
-      };
-      break;
+      }
+      break
     case "person":
       cardType = {
         id: element.id,
@@ -37,8 +33,8 @@ export const useMyCard = (element: MovieType | TvType | PersonType) => {
           "\nPopularity: " +
           (element as PersonType).popularity,
           
-      };
-      break;
+      }
+      break
     case "tv":
       cardType = {
         id: element.id,
@@ -47,8 +43,9 @@ export const useMyCard = (element: MovieType | TvType | PersonType) => {
         image: (element as TvType).backdrop_path,
         poster: (element as TvType).poster_path,
         description: (element as TvType).overview,
-      };
-      break;
+      }
+      break
   }
-  return { cardType, handleClick };
-};
+  
+  return { cardType, handleClick }
+}

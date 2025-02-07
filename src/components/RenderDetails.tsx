@@ -1,17 +1,19 @@
-import { MovieDetailsType, TvDetailsType, PersonDetailsType } from "../types/detailsTypes";
-import { CardType } from "../types/cardType";
+import { MovieDetailsType, TvDetailsType, PersonDetailsType } from "../types/detailsTypes"
+import { CardType } from "../types/cardType"
 
 type RenderDetailsProps = {
-  cardType: CardType;
-  details: MovieDetailsType | TvDetailsType | PersonDetailsType;
-};
+  cardType: CardType
+  details: MovieDetailsType | TvDetailsType | PersonDetailsType
+}
 
 export const RenderDetails = ({ cardType, details }: RenderDetailsProps) => {
-  if (!details) return <p>Loading...</p>;
+  const mediaType = cardType.media_type || "person"
 
-  switch (cardType.media_type) {
+  if (!details) return <p>Loading...</p>
+
+  switch (mediaType) {
     case "movie":
-      const movieDetails = details as MovieDetailsType;
+      const movieDetails = details as MovieDetailsType
       return (
         <>
           <p><strong>Overview:</strong> {movieDetails.overview}</p>
@@ -22,9 +24,9 @@ export const RenderDetails = ({ cardType, details }: RenderDetailsProps) => {
           <p><strong>Vote Average:</strong> {movieDetails.vote_average}</p>
           <p><strong>Vote Count:</strong> {movieDetails.vote_count}</p>
         </>
-      );
+      )
     case "tv":
-      const tvDetails = details as TvDetailsType;
+      const tvDetails = details as TvDetailsType
       return (
         <>
           <p><strong>Overview:</strong> {tvDetails.overview}</p>
@@ -38,9 +40,9 @@ export const RenderDetails = ({ cardType, details }: RenderDetailsProps) => {
           <p><strong>Vote Average:</strong> {tvDetails.vote_average}</p>
           <p><strong>Vote Count:</strong> {tvDetails.vote_count}</p>
         </>
-      );
+      )
     case "person":
-      const personDetails = details as PersonDetailsType;
+      const personDetails = details as PersonDetailsType
       return (
         <>
           <p><strong>Birthday:</strong> {personDetails.birthday}</p>
@@ -49,6 +51,8 @@ export const RenderDetails = ({ cardType, details }: RenderDetailsProps) => {
           <p><strong>Known for Department:</strong> {personDetails.known_for_department}</p>
           <p><strong>Popularity:</strong> {personDetails.popularity}</p>
         </>
-      );
+      )
   }
-};
+}
+
+export default RenderDetails

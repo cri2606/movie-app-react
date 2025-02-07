@@ -1,11 +1,11 @@
-import { Card, Heading, Button, Box, Image } from "@chakra-ui/react";
-import { RenderDetails } from "../components/RenderDetails";
-import Navbar from "./navbar/Navbar";
-import { useDetails } from "../hooks/useDetails";
-import { srcImage } from "../utilities/functions";
+import { Card, Heading, Button, Box, Image } from "@chakra-ui/react"
+import { RenderDetails } from "../components/RenderDetails"
+import { Navbar } from "./navbar/Navbar"
+import { useDetails } from "../hooks/useDetails"
+import { srcImage } from "../utilities/functions"
 
 export const Details = () => {
-  const { cardType, details, handleBackClick, handleSectionChange } = useDetails();
+  const { cardType, details, handleBackClick, handleSectionChange } = useDetails()
   
   if (!details) return (
     <Box 
@@ -18,7 +18,7 @@ export const Details = () => {
     >
       Loading...
     </Box>
-  );
+  )
 
   return (
     <>
@@ -105,12 +105,14 @@ export const Details = () => {
                 }}
                 transition="all 0.2s"
               >
-                Back to Home
+                Back
               </Button>
             </Card.Footer>
           </Box>
         </Card.Root>
       </Box>
     </>
-  );
-};
+  )
+}
+
+export default Details
